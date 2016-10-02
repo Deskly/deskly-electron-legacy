@@ -46,6 +46,7 @@ app.on('ready', function() {
   var contextMenu = Menu.buildFromTemplate([{
     label: 'Preferences...',
     accelerator: 'CmdOrCtrl+,',
+    visible: false,
     click: function() {
       if (win) {
         win.focus();
