@@ -2,5 +2,10 @@
 
 node_modules
 
+deskly-darwin-x64
+deskly-linux-armv7l
+deskly-linux-ia32
+deskly-linux-x64
 deskly-mas-x64
+deskly-win32-ia32
 deskly-win32-x64
