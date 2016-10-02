@@ -1,0 +1,24 @@
+{
+  "name": "deskly",
+  "version": "1.0.0",
+  "description": "A daily Reddit wallpaper changer",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Kaioru",
+  "license": "MIT",
+  "devDependencies": {
+    "devtron": "^1.3.0",
+    "electron": "^1.3.4"
+  },
+  "dependencies": {
+    "copy-paste": "^1.3.0",
+    "electron-config": "^0.2.1",
+    "electron-debug": "^1.0.1",
+    "electron-pug": "^1.5.1",
+    "needle": "^1.1.2",
+    "node-notifier": "^4.6.1",
+    "wallpaper": "^2.3.0"
+  }
+}
