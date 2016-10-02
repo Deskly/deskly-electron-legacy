@@ -16,6 +16,11 @@ const ncp = require("copy-paste");
 const notifier = require('node-notifier');
 const Config = require('electron-config');
 const Debug = require('electron-debug');
+const AutoLaunch = require('auto-launch');
+
+const desklyAutoLauncher = new AutoLaunch({
+  name: 'deskly'
+});
 
 const iconPath = path.join(__dirname, 'assets/images/iconTemplate.png');
 const config = new Config({
@@ -29,13 +34,17 @@ const config = new Config({
     sorttype: 'hot',
     attempts: 10,
     nsfw: false,
-    autolaunch: false
+    autolaunch: true
   }
 });
 let win = null;
 let tray = null;
 
 console.log('Using config file ' + config.path);
+
+if (config.get('autolaunch')) {
+  desklyAutoLauncher.enable();
+}
 
 if (app.dock)
   app.dock.hide();
@@ -91,6 +100,11 @@ app.on('ready', function() {
       checked: config.get('autolaunch'),
       click: function(item) {
         config.set('autolaunch', item.checked);
+        if (item.checked) {
+          desklyAutoLauncher.enable();
+        } else {
+          desklyAutoLauncher.disable();
+        }
       }
     }]
   }, {
